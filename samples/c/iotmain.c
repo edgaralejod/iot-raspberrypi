@@ -212,7 +212,7 @@ void getClientId(struct config * configstr, char* mac_address) {
 //This function generates the sine value based on the interval specified and the duration
 float sineVal(float minValue, float maxValue, float duration, float count) {
 	float sineValue;
-	sineValue = sin(2.0 * PI * count / duration) * (maxValue - minValue) / 2.0;
+	sineValue = 4;
 	return sineValue;
 }
 
