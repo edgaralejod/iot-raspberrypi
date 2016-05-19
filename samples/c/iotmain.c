@@ -22,10 +22,6 @@
 #include <syslog.h>
 
 char configFile[50] = "/etc/iotsample-raspberrypi/device.cfg";
-float PI = 3.1415926;
-float MIN_VALUE = -1.0;
-float MAX_VALUE = 1.0;
-
 char clientId[MAXBUF];
 char publishTopic[MAXBUF] = "iot-2/evt/status/fmt/json";
 char subscribeTopic[MAXBUF] = "iot-2/cmd/reboot/fmt/json";
@@ -48,7 +44,6 @@ struct config {
 
 int get_config(char* filename, struct config * configstr);
 void getClientId(struct config * configstr, char* mac_address);
-float sineVal(float minValue, float maxValue, float duration, float count);
 void sig_handler(int signo);
 int reconnect_delay(int i);
 
@@ -151,8 +146,8 @@ int main(int argc __attribute__((unused)),
 		subscribe(&client, subscribeTopic);
 	}
 	while (1) {
-		JsonMessage json_message = { DEVICE_NAME, getCPUTemp(), sineVal(
-				MIN_VALUE, MAX_VALUE, 16, count), GetCPULoad() };
+		JsonMessage json_message = { DEVICE_NAME, getCPUTemp()
+				, GetCPULoad() };
 		json = generateJSON(json_message);
 		res = publishMQTTMessage(&client, publishTopic, json);
 		syslog(LOG_DEBUG, "Posted the message with result code = %d\n", res);
@@ -209,12 +204,6 @@ void getClientId(struct config * configstr, char* mac_address) {
 //	sprintf(clientId, "%s:%s", TENANT_PREFIX,mac_address);
 }
 
-//This function generates the sine value based on the interval specified and the duration
-float sineVal(float minValue, float maxValue, float duration, float count) {
-	float sineValue;
-	sineValue = 4;
-	return sineValue;
-}
 
 // Signal handler to handle when the user tries to kill this process. Try to close down gracefully
 void sig_handler(int signo __attribute__((unused))) {

@@ -44,10 +44,6 @@ char * generateJSON(JsonMessage passedrpi ) {
 	strcat(jsonReturned, buffer);
 	strcat(jsonReturned, ",");
 
-	strcat(jsonReturned, "\"sine\":");
-	sprintf(buffer, "%.2f", passedrpi.sine);
-	strcat(jsonReturned, buffer);
-
 	strcat(jsonReturned, "}");
 	strcat(jsonReturned, "}");
 
