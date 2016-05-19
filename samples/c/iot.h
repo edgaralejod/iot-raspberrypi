@@ -21,8 +21,8 @@
 
   struct json {
 	  char myname[100];
-	  float cputemp;
-	  float sine;
+	  float tds1;
+	  float tds2;
 	  float cpuload;
   };
 
