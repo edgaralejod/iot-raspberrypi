@@ -147,7 +147,7 @@ int main(int argc __attribute__((unused)),
 	}
 	while (1) {
 		JsonMessage json_message = { DEVICE_NAME, getCPUTemp()
-				, GetCPULoad() };
+				, GetCPULoad(),2.1 };
 		json = generateJSON(json_message);
 		res = publishMQTTMessage(&client, publishTopic, json);
 		syslog(LOG_DEBUG, "Posted the message with result code = %d\n", res);
