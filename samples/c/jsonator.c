@@ -30,16 +30,16 @@ char * generateJSON(JsonMessage passedrpi ) {
 	strcat(jsonReturned, "{");
 
 	strcat(jsonReturned, "\"myName\":\"");
-	strcat(jsonReturned, passedrpi.myname);
+	strcat(jsonReturned, passedrpi.tds1);
 	strcat(jsonReturned, "\",");
 	char buffer[10];
 
 	strcat(jsonReturned, "\"tds1\":");
-	sprintf(buffer, "%.2f", passedrpi.cputemp);
+	sprintf(buffer, "%.2f", passedrpi.tds2);
 	strcat(jsonReturned, buffer);
 	strcat(jsonReturned, ",");
 
-	strcat(jsonReturned, "\"tds2\":");
+	strcat(jsonReturned, "\"cpuload\":");
 	sprintf(buffer, "%.2f", passedrpi.cpuload);
 	strcat(jsonReturned, buffer);
 	strcat(jsonReturned, ",");
