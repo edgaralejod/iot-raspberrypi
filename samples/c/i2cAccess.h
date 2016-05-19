@@ -7,6 +7,6 @@
 
 static const char commandInfo[5] = "I,?\r";
 
-bool initCommunications( void );
+char initCommunications( void );
 void sendCommand( char* command );
 float getTdsValue ( char number );
