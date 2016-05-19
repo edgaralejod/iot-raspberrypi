@@ -34,12 +34,12 @@ char * generateJSON(JsonMessage passedrpi ) {
 	strcat(jsonReturned, "\",");
 	char buffer[10];
 
-	strcat(jsonReturned, "\"cputemp\":");
+	strcat(jsonReturned, "\"tds1\":");
 	sprintf(buffer, "%.2f", passedrpi.cputemp);
 	strcat(jsonReturned, buffer);
 	strcat(jsonReturned, ",");
 
-	strcat(jsonReturned, "\"cpuload\":");
+	strcat(jsonReturned, "\"tds2\":");
 	sprintf(buffer, "%.2f", passedrpi.cpuload);
 	strcat(jsonReturned, buffer);
 	strcat(jsonReturned, ",");
